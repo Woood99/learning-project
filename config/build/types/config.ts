@@ -6,6 +6,7 @@ export interface BuildPaths {
    entry: EntryObject;
    build: string;
    html: string;
+   src: string;
 }
 
 export interface BuildOptions {
