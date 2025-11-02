@@ -5,6 +5,19 @@ import { BuildOptions } from './types/config';
 export function buildLoaders(options: BuildOptions): RuleSetRule[] {
    const { isDev } = options;
 
+   const reactRefreshLoader = {
+      test: /\.[jt]sx?$/,
+      exclude: /node_modules/,
+      use: [
+         {
+            loader: require.resolve('babel-loader'),
+            options: {
+               plugins: [isDev && require.resolve('react-refresh/babel')].filter(Boolean),
+            },
+         },
+      ],
+   };
+
    const svgLoader = {
       test: /\.svg$/,
       use: ['@svgr/webpack'],
@@ -43,5 +56,5 @@ export function buildLoaders(options: BuildOptions): RuleSetRule[] {
       ],
    };
 
-   return [svgLoader, fileLoader, typescriptLoader, cssLoader];
+   return [reactRefreshLoader, svgLoader, fileLoader, typescriptLoader, cssLoader];
 }
