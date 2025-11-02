@@ -5,6 +5,20 @@ import { BuildOptions } from './types/config';
 export function buildLoaders(options: BuildOptions): RuleSetRule[] {
    const { isDev } = options;
 
+   const svgLoader = {
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+   };
+
+   const fileLoader = {
+      test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+      use: [
+         {
+            loader: 'file-loader',
+         },
+      ],
+   };
+
    const typescriptLoader = {
       test: /\.tsx?$/,
       use: 'ts-loader',
@@ -25,8 +39,9 @@ export function buildLoaders(options: BuildOptions): RuleSetRule[] {
             },
          },
          'sass-loader',
+         'postcss-loader',
       ],
    };
 
-   return [typescriptLoader, cssLoader];
+   return [svgLoader, fileLoader, typescriptLoader, cssLoader];
 }
