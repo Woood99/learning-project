@@ -1,9 +1,10 @@
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { DefinePlugin, HotModuleReplacementPlugin, ProgressPlugin, WebpackPluginInstance } from 'webpack';
-import { BuildOptions } from './types/config';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+
+import { BuildOptions } from './types/config';
 
 export function buildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInstance[] {
    const plugins = [
@@ -17,6 +18,9 @@ export function buildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInsta
       }),
       new DefinePlugin({
          __IS_DEV__: JSON.stringify(isDev),
+      }),
+      new BundleAnalyzerPlugin({
+         openAnalyzer: false,
       }),
    ];
 
