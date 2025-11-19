@@ -16,8 +16,8 @@ const Sidebar = ({ className }: SidebarProps) => {
    };
 
    return (
-      <div className={classNames(styles.Sidebar, { [styles.collapsed]: collapsed }, [className])}>
-         <button onClick={onToggle}>toggle</button>
+      <div data-testid="sidebar" className={classNames(styles.Sidebar, { [styles.collapsed]: collapsed }, [className])}>
+         <button data-testid="sidebar-toggle" onClick={onToggle}>toggle</button>
          <div className="w-full absolute bottom-5 flex justify-center items-center gap-4">
             <ThemeSwitcher />
             <LangSwitcher />
