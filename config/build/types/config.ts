@@ -3,7 +3,7 @@ import { EntryObject } from 'webpack';
 export type BuildMode = 'development' | 'production';
 
 export interface BuildPaths {
-   entry: EntryObject;
+   entry: EntryObject | string;
    build: string;
    html: string;
    src: string;
