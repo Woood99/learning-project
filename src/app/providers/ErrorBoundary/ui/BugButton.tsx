@@ -14,7 +14,11 @@ const BugButton = () => {
       }
    }, [error]);
 
-   return <Button onClick={onThrow}>{t('Вызвать ошибку')}</Button>;
+   return (
+      <Button variant="outline" onClick={onThrow}>
+         {t('Вызвать ошибку')}
+      </Button>
+   );
 };
 
 export default BugButton;
