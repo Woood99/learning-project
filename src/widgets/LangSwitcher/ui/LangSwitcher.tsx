@@ -4,9 +4,10 @@ import { Button } from 'shared/ui';
 
 interface LangSwitcherProps {
    className?: string;
+   short?: boolean;
 }
 
-const LangSwitcher = ({ className }: LangSwitcherProps) => {
+const LangSwitcher = ({ className, short }: LangSwitcherProps) => {
    const { t, i18n } = useTranslation();
 
    const toggle = () => {
@@ -16,7 +17,7 @@ const LangSwitcher = ({ className }: LangSwitcherProps) => {
 
    return (
       <Button variant="clear" onClick={toggle} className={classNames('', {}, [className])}>
-         {t('Язык')}
+         {t(short ? 'Короткий язык' : 'Язык')}
       </Button>
    );
 };
