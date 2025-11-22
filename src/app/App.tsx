@@ -4,6 +4,7 @@ import { AppRouter } from './providers/router';
 
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
+import { Counter } from 'entities/Counter';
 
 const App = () => {
    return (
@@ -12,6 +13,7 @@ const App = () => {
             <Navbar />
             <div className="flex">
                <Sidebar />
+               <Counter />
                <div className="grow p-5">
                   <AppRouter />
                </div>
