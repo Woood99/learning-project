@@ -1,13 +1,13 @@
 import { useCallback, useState } from 'react';
 
-interface UseModalResult {
+interface UseBooleanResult {
    isOpen: boolean;
    open: () => void;
    close: () => void;
    toggle: () => void;
 }
 
-export const useModal = (initialValue = false): UseModalResult => {
+export const useBoolean = (initialValue = false): UseBooleanResult => {
    const [isOpen, setIsOpen] = useState(initialValue);
 
    const open = useCallback(() => setIsOpen(true), []);

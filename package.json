@@ -8,7 +8,8 @@
       "build:prod": "webpack --env mode=production && npm run copy:locales",
       "copy:locales": "cp -r public/locales build/locales || xcopy public\\locales build\\locales /E /I",
       "unit": "jest --config ./config/jest/jest.config.ts",
-      "start:dev:server": "node ./json-server/index.js"
+      "start:dev:server": "node ./json-server/index.js",
+      "generate:entity": "node scripts/generate-entity.js"
    },
    "keywords": [],
    "author": "",
