@@ -4,3 +4,4 @@ export { default as Input } from './Input/Input';
 export { default as Loader } from './Loader/Loader';
 export { default as Modal } from './Modal/Modal';
 export { default as Portal } from './Portal/Portal';
+export { default as Text } from './Text/Text';
